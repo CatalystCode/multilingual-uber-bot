@@ -69,11 +69,11 @@ function create(connector) {
   }
 
   var bots = [];
-  var botDirectories = getDirectories('./bots');
+  var botDirectories = getDirectories(path.join(__dirname, 'bots'));
   for (var dirIdx in botDirectories) {
 
       var dirName = botDirectories[dirIdx];
-      var childBot = require('./bots/' + dirName);
+      var childBot = require(path.join(__dirname, 'bots', dirName));
       bots.push(childBot);
       bot.library(childBot.createLibrary());
   }
