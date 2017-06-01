@@ -13,7 +13,7 @@ var languageLibrary = (function () {
     _lib.dialog('change', [
         function (session, args, next) {
             session.send('Please choose a language \n\n Por favor, elige un idioma');
-            builder.Prompts.choice(session, '', Object.keys(LANGUAGES));
+            builder.Prompts.choice(session, ' ', Object.keys(LANGUAGES));
         },
         function (session, results, next) {
             session.userData[LOCALE_VAR] = LANGUAGES[results.response.entity];
